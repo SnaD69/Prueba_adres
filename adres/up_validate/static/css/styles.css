@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos */
+}
+
+input[type="file"] {
+    display: none; /* Ocultar el input original */
+}
+
+label {
+    background-color: #007bff; /* Azul para el botón */
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+label:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #4CAF50; /* Verde claro */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+.message {
+    color: #4CAF50; /* Verde claro para mensajes de éxito */
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.file-name {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333; /* Color para el nombre del archivo */
+}
+
+.errors {
+    color: #e74c3c; /* Rojo para mensajes de error */
+    margin-top: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #ffdddd; /* Fondo claro para errores */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #e74c3c; /* Borde rojo */
+}
+
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Asegúrate de que esté sobre otros elementos */
+    display: none; /* Oculto por defecto */
+}
+
+.alert-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.alert-message {
+    font-weight: bold; /* Negrita para el mensaje */
+    margin-bottom: 10px; /* Espacio debajo del mensaje */
+}
+
+.alert-icon {
+    color: red; /* Cambiar el color del ícono a rojo */
+    font-size: 24px; /* Tamaño del ícono */
+}
+
+.close-alert {
+    margin-top: 10px;
+    display: block; /* Centrar el botón */
+    margin-left: auto; /* Para centrar el botón */
+    margin-right: auto; /* Para centrar el botón */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-alert:hover {
+    background-color: #0056b3;
+}

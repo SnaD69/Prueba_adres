@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Archivo CSV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Subir y Validar Archivo CSV</h1>
+
+        <form id="upload-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" id="file-input" name="archivo_csv" required>
+            <label for="file-input"><i class="fas fa-upload"></i> Seleccionar Archivo</label>
+            <button type="submit"><i class="fas fa-check"></i> Subir Archivo</button>
+        </form>
+
+        {% if mensaje %}
+            <p class="message">{{ mensaje }}</p>
+            <p class="file-name">Archivo subido: {{ request.FILES.archivo_csv.name }}</p>
+        {% endif %}
+
+        {% if errores %}
+            <h2>Errores:</h2>
+            <ul class="errors">
+                {% for error in errores %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div id="custom-alert" class="custom-alert" style="display: none;">
+        <div class="alert-box">
+            <i class="fas fa-exclamation-triangle alert-icon"></i>
+            <p id="alert-message" class="alert-message"></p>
+            <p id="file-name-alert" class="file-name"></p>
+            <button id="close-alert" class="close-alert">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                const fileName = fileInput.files[0].name;
+                document.getElementById('alert-message').textContent = "Archivo seleccionado:";
+                document.getElementById('file-name-alert').textContent = fileName;
+
+                const customAlert = document.getElementById('custom-alert');
+                customAlert.style.display = 'block'; // Mostrar la alerta
+
+                // Manejar el botón "Cerrar"
+                document.getElementById('close-alert').onclick = function() {
+                    customAlert.style.display = 'none'; // Ocultar la alerta al cerrar
+                };
+            }
+        });
+    </script>
+</body>
+</html>
